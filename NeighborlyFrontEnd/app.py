@@ -80,6 +80,7 @@ def add_ad_view():
 def edit_ad_view(id):
     response = requests.get(settings.API_URL + '/getAdvertisement?id=' + id)
     ad = response.json()
+    print(ad, " is the ad")
     return render_template("edit_ad.html", ad=ad)
 
 
@@ -107,6 +108,7 @@ def add_ad_request():
         'price': request.form['price']
     }
     response = requests.post(settings.API_URL + '/createAdvertisement', json=json.dumps(req_data))
+    print(json.dumps(req_data), " is the dumps version")
     return redirect(url_for('home'))
 
 @app.route('/ad/update/<id>', methods=['POST'])

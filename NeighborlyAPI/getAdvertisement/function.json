@@ -9,7 +9,8 @@
       "methods": [
         "get",
         "post"
-      ]
+      ],
+      "connection": "DevMongoDBUrl"
     },
     {
       "type": "http",

@@ -5,23 +5,17 @@
      <div class="row">
             <div class="col-md-3">
                <div class="card">
-                   <ul class="list-group list-group-flush">
-                         <li class="list-group-item">
-                            <div class="h5">My Neighborhood</div>
+                <ul class="list-group list-group-flush  header-card">
+                    <li class="list-group-item nav">
+                       <div class="h5 text-muted nav">[ <a href="/">Marketplace</a>] [ Upcoming Events ] [Crime and Safety]</div>
+                   </li>
+               
+                         <li class="list-group-item nav">
+                            <h2 class="gradient-text">My Neighborhood</h2>
                             <p>Welcome to your community app.</p>
                          </li>
                      </ul>
-                    <ul class="list-group list-group-flush">
-                         <li class="list-group-item">
-                            <div class="h6 text-muted"><a href="/">Marketplace</a></div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted">Upcoming Events</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="h6 text-muted">Crime and Safety</div>
-                        </li>
-                    </ul>
+                    
                 </div>
             </div><!-- end col-md-3 -->
 
@@ -32,15 +26,15 @@
                 {% for a in ads %}
                 <div class="panel">
                     <div class="panel-body panel-neighborly">
-                        <div class="panel-title"> <a href="/ad/view/{{ a._id['$oid'] }}">{{a.title}}</a></div>
-                        <p class="text-muted">Email: {{a.email}}</p>
-                        <p class="text-muted">{{a.description}}</p>
-                        <p class="text-muted">Price: {{ a.price}}</p>
+                        <h4 class="panel-title"> <a href="/ad/view/{{ a._id['$oid'] }}">{{a.title}}</a></h4>
+                        <p class="text-marketplace">Email: {{a.email}}</p>
+                        <p class="text-marketplace">{{a.description}}</p>
+                        <p class="text-marketplace">Price: {{ a.price}}</p>
                         <p><img class="img-small" width="200" src={{a.imgUrl}}></p>
                     </div><!-- end panel body -->
                     <div class="panel-footer">
-                        <a class="btn btn-warning btn-xs" href="ad/edit/{{ a._id['$oid'] }}">Update</a>
-                        <a class="btn btn-danger btn-xs" href="ad/delete/{{ a._id['$oid'] }}">Delete</a>
+                        <a class="btn btn-info btn-xs" href="ad/edit/{{ a._id['$oid'] }}">Update</a>
+                        <a class="btn btn-warning btn-xs" href="ad/delete/{{ a._id['$oid'] }}">Delete</a>
                     </div>
                  </div><!-- end panel  -->
                 {% endfor %}       
