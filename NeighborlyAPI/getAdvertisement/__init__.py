@@ -17,8 +17,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             database = client['neighborly']
             collection = database['ads']
 
-            query = {'_id': ObjectId(id)}
-            # query = {'_id': id}
+            # query = {'_id': ObjectId(id)}
+            query = {'_id': id}
             result = collection.find_one(query)
             result = dumps(result)
 

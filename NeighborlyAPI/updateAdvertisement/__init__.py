@@ -3,6 +3,7 @@ import pymongo
 from bson.objectid import ObjectId
 import os
 
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
 
     id = req.params.get('id')
@@ -10,17 +11,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if request:
         try:
-            url = os.environ['DevMongoDBUrl']  # TODO: Update with appropriate MongoDB connection information
+            url = os.environ['DevMongoDBUrl']
             client = pymongo.MongoClient(url)
             database = client['neighborly']
             collection = database['ads']
-            
-            filter_query = {'_id': ObjectId(id)}
-            # filter_query = {'_id': id}
+            filter_query = {'_id': id}
             update_query = {"$set": eval(request)}
             rec_id1 = collection.update_one(filter_query, update_query)
             return func.HttpResponse(status_code=200)
-        except:
+        except Exception as e:
             print("could not connect to mongodb")
             return func.HttpResponse('Could not connect to mongodb', status_code=500)
     else:
