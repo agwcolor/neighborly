@@ -13,7 +13,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         try:
             url = os.environ['DevMongoDBUrl']
             client = pymongo.MongoClient(url)
-            database = client['neighborly']
+            database = client['neighborlymongodb171']
             collection = database['ads']
             filter_query = {'_id': id}
             update_query = {"$set": eval(request)}

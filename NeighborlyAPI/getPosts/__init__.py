@@ -14,7 +14,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         url = os.environ['DevMongoDBUrl']  
         # TODO: Update with appropriate MongoDB connection information
         client = pymongo.MongoClient(url)
-        database = client['neighborly']
+        database = client['neighborlymongodb171']
         collection = database['posts']
 
         result = collection.find({})

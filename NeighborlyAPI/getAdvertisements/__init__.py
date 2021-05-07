@@ -11,10 +11,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python getPosts trigger function processed a request.')
 
     try:
-        url = os.environ['DevMongoDBUrl']  
+        url = os.environ['DevMongoDBUrl']
+        print(url, " is the url") 
         # TODO: Update with appropriate MongoDB connection information
         client = pymongo.MongoClient(url)
-        database = client['neighborly']
+        database = client['neighborlymongodb171']
         collection = database['ads']
 
         result = collection.find({})

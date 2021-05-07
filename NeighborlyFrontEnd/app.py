@@ -1,8 +1,9 @@
 import logging.config
-import os
+from os import environ
 from flask import Flask, Blueprint, request, jsonify, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-from . import settings
+# from . import settings
+import settings
 import requests
 import json
 from feedgen.feed import FeedGenerator
@@ -52,7 +53,7 @@ def rss():
     response = requests.get(settings.API_URL + '/getAdvertisements')
     ads = response.json()
 
-    for a in ads: 
+    for a in ads:
         fe = fg.add_entry()
         fe.title(a.title)
         fe.description(a.description)
@@ -133,8 +134,14 @@ def delete_ad_request(id):
 
 # running app
 def main():
-    print(' ----->>>> Flask Python Application running in development server')
-    app.run(host=settings.SERVER_HOST, port=settings.SERVER_PORT, debug=settings.FLASK_DEBUG)
+    HOST = environ.get('SERVER_HOST', 'localhost')
+    try:
+        PORT = int(environ.get('SERVER_PORT', '5555'))
+    except ValueError:
+        PORT = 5555
+    app.run(HOST, PORT, ssl_context='adhoc')
+    # print(' ----->>>> Flask Python Application running in development server')
+    # app.run(host=settings.SERVER_HOST, port=settings.SERVER_PORT, # debug=settings.FLASK_DEBUG)
 
 
 if __name__ == '__main__':

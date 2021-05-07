@@ -1,5 +1,4 @@
 azure-functions==1.7.0
-azure-functions-worker==1.1.9
 bson==0.5.10
 grpcio==1.33.2
 grpcio-tools==1.33.2

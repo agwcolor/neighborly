@@ -8,9 +8,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     print(request, " is the request")
     if request:
         try:
-            url = os.environ['DevMongoDBUrl']   # TODO: Update with appropriate MongoDB connection information
+            url = os.environ['DevMongoDBUrl']
+            # TODO: Update with appropriate MongoDB connection information
             client = pymongo.MongoClient(url)
-            database = client['neighborly']
+            database = client['neighborlymongodb171']
             collection = database['ads']
 
             rec_id1 = collection.insert_one(eval(request))
