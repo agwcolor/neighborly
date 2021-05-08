@@ -12,7 +12,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         url = os.environ['DevMongoDBUrl']
-        print(url, " is the url") 
+        print(url, " is the url")
         # TODO: Update with appropriate MongoDB connection information
         client = pymongo.MongoClient(url)
         database = client['neighborlymongodb171']
