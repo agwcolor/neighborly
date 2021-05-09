@@ -5,8 +5,8 @@
       "type": "eventGridTrigger",
       "name": "event",
       "direction": "in",
-	  "eventHubName": "testhub", 
-	  "connection": ""
+	    "eventHubName": "neighborlyeventhub171",
+	    "connection": "eventHubConnectionString"
     }
   ]
 }
